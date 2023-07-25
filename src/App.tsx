@@ -5,6 +5,8 @@ import {
   QueryClient,
   QueryClientProvider,
 } from "@tanstack/react-query";
+import axios from "axios";
+import Layout from "./components/Layout";
 
 const queryClient = new QueryClient();
 
@@ -15,6 +17,7 @@ function App() {
         <ChakraProvider>
           <Container>
             <Input type="date" />
+            <Layout />
           </Container>
         </ChakraProvider>
       </QueryClientProvider>
