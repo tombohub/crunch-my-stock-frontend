@@ -15,10 +15,7 @@ function App() {
     <>
       <QueryClientProvider client={queryClient}>
         <ChakraProvider>
-          <Container>
-            <Input type="date" />
-            <Layout />
-          </Container>
+          <Layout />
         </ChakraProvider>
       </QueryClientProvider>
     </>

@@ -1,5 +1,7 @@
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
+import { Container, Input } from "@chakra-ui/react";
+import { useState } from "react";
 
 async function getWinnersLosersCount(date: string) {
   const res = await axios.get(
@@ -9,10 +11,24 @@ async function getWinnersLosersCount(date: string) {
 }
 
 export default function Layout() {
-  const date = "2023-06-09";
+  const [date, setDate] = useState("");
   const query = useQuery({
     queryKey: ["todos", date],
     queryFn: () => getWinnersLosersCount(date),
   });
-  return <>{JSON.stringify(query.data, null, 2)}</>;
+
+  if (query.isLoading) return "Loading winners losers";
+  if (query.isError) return query.error;
+  return (
+    <>
+      <Container>
+        <Input
+          type="date"
+          value={date}
+          onChange={e => setDate(e.target.value)}
+        />
+      </Container>
+      {JSON.stringify(query.data, null, 2)}
+    </>
+  );
 }
