@@ -1,11 +1,5 @@
-import { ChakraProvider, Input, Container } from "@chakra-ui/react";
-import Button from "./components/visual/Button";
-import {
-  useQuery,
-  QueryClient,
-  QueryClientProvider,
-} from "@tanstack/react-query";
-import axios from "axios";
+import { ChakraProvider } from "@chakra-ui/react";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import Layout from "./components/Layout";
 
 const queryClient = new QueryClient();
